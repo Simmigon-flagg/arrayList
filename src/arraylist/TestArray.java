@@ -4,8 +4,6 @@
  */
 package arraylist;
 
-import javax.sound.midi.SysexMessage;
-
 /**
  *
  * @author Flagg
@@ -17,7 +15,12 @@ public class TestArray {
      */
     public static void main(String[] args) {
         //Use Default value inside consturcor
-        ArrayList theArray = new ArrayList();
+        ArrayList myA = new ArrayList(3);
+        
+        for (int i = 0; i < myA.Capacity(); i++) {
+            System.out.println(myA.get(i));
+
+        }
 
     }
 }
