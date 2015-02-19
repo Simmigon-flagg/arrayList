@@ -30,37 +30,50 @@ public class ArrayList {
      * then break out of the current loop
      */
     public void add(Object x) {
+        String f = "";
         if (isEmpty()) {
             myArray[0] = x;
+            f = "Object: \"" + x + "\" was added.";
         } //end of if  
         else if (myArray[myArray.length - 1] != null) {
-            System.out.println("Obect: \"" + x + "\" was not added.");
+            f = "Object: \"" + x + "\" was not added.";
 
         }//end of else if 
         else {
             for (int i = myArray.length - 1; i >= 0; i--) {
                 if (myArray[i] != null) {
+                    f = "Object: \"" + x + "\" was added.";
                     myArray[++i] = x;
                     break;
                 }//End of if
             }//end of for loop
         }//end of else
+        System.out.println(f);
     }//End of add() method
     //Postcondition: An Array of size Ten 
 
     //Precondition: An int variable and an Object variable is needed for the parameters.
     /*The int variable will insert the Object in the location specified by the index
      * If the value at the index is null then we replace that value with the incoming Object x
-     * else we send a message Saying that Slot is occupied. 
+     * else we send a message Saying that Slot is occupied. If the user tries to place a object in a index that
+     * is out of  bound a try catch block is used to print a message. Slot does not exist
      */
     public void add(int index, Object x) {
+        String f = "";
 
-        if (myArray[index] == null) {
-            myArray[index] = x;
-        }//End of if
-        else {
-            System.out.println("Slot is occupied.\nThe object: \"" + x + "\" was not place into slot \"" + index + "\".");
-        }//End of else
+        try {
+            if (myArray[index] == null) {
+                f = "Object: \"" + x + "\" was added.";
+                myArray[index] = x;
+            }//End of if
+            else {
+                f = "Slot is occupied.\nObject: \"" + x + "\" was not place into slot \"" + index + "\".";
+            }//End of else
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            f = "Slot \"" + index + "\" does not exist.\nObject: \"" + x + "\" was not place into a list.";
+        }
+        System.out.println(f);
     }// End of add()
     //Postcondition: An object is now added to the  array at a specifed location
 
@@ -122,19 +135,25 @@ public class ArrayList {
      */
     public boolean isIn(Object ob) {
         boolean found = false;
-
+        String f = "";
         try {
             for (int i = 0; i < myArray.length; i++) {
                 if (myArray[i].equals(ob)) {
-                    System.out.println("Object: \"" + ob + "\" is in the list.");
                     found = true;
+                    f = "Object: \"" + ob + "\" is in the list.";
+
                     break;
                 }//End of if
+                else {
+                    f = "Object: \"" + ob + "\" is not in the list.";
+                }
             }//End of for loop
+
         }//end of try
         catch (NullPointerException e) {
-            System.out.println("Object: \"" + ob + "\" is not in the list.");
+
         }//End of catch        
+        System.out.println(f);
         return found;
     }//End of isIn method
     //Postcondition: return the value of found
@@ -154,39 +173,60 @@ public class ArrayList {
     public int find(Object n) {
 
         int i = 0;
+        String f = "";
+        if (isIn(n)) {
+            try {
+                for (i = 0; i < myArray.length - 1; i++) {
+                    if (myArray[i].equals(n)) {
+                        f = "Object: \"" + n + "\" found.";
+                        break;
+                    } else {
+                        f = "Object: \"" + n + "\" was not found.";
+                    }//End of if
+                }//end of the for loop
 
-        try {
-            for (i = 0; i < myArray.length; i++) {
-                if (myArray[i].equals(n)) {
-                    break;
-                }//End of if
-            }//end of the for loop
-
-            System.out.println("Object: \"" + n + "\" is at index \"" + i + "\".");
-        } //End of the try
-        catch (NullPointerException e) {
-            i -= i + 1;
-            System.out.println("Object: \"" + n + "\" is not in the list \"" + i + "\" is returned.");
-        }//End of the catch           
+            } //End of the try
+            catch (NullPointerException e) {
+                System.out.println(f);
+            }//End of the catch    
+        }
         return i;
-    }
+
+    }//end if find
     //Postcondition:   //return the value of i
 
     //Precondition: An Object variable is needed for the parameters.  
     /*The find() method is called with the incoming Object value from the parameter 
      * The find() method will return a int value that is holding the index of the object we want to remove
-     *well will replace that object with null value. 
-     *
+     *  find returns -1 if the Object is not in the list
+     * if find() returns a postive number 0 or greater that index is removed else a message is printed
+     * saying the object was not found. 
      */
     public void remove(Object n) {
-
-        myArray[find(n)] = null;
+        String f = "";
+        int i = find(n);
+        if (i == myArray.length) {
+            f = "Object: \"" + n + "\" is not in the list.";
+        }//
+        if ((i >= 0) || i != myArray.length) {
+            myArray[i] = null;
+            f = "Object: \"" + n + "\" was removed from the list.";
+        }
+        //end of else
+        System.out.println(f);
     }//End of remove method
-    //Postcondition: None
-
-    //Precondition: None
+//Postcondition: None
+//Precondition: None
     /* This method use the object superclass methods to return the length of the arrayList
      */
+
+    //Empty the list
+    public void emptyTheArray() {
+        for (int i = 0; i < myArray.length; i++) {
+            myArray[i] = null;
+        }//end of for loop
+    }//end of emptyTheArray
+
     public int Capacity() {
         return myArray.length;
     }//end of method
