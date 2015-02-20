@@ -1,26 +1,174 @@
-/* Simmigon Flagg 12:00pm - 1:15pm
+/*
+ Documentation:
+    1.     Purpose - 13%.
+            The purpose of this assignment is to write the ArrayList Data Structure 
+             along with helper method to support and implement the ArrayList functionality.     
+
+    
+Output from TestArray
+===============================================
+ This list is empty: true
+
+ ___________________________
+ Maximum Length of the array: 5
+ ___________________________
+ Object: "Simmigon" was added.
+ Object: "Daril" was added.
+ Object: "Flagg" was added.
+ Object: "Denzel" was added.
+ Object: "Junk" was added.
+
+ ___________________________
+ Object: "Trash" was not added.
+ Tried to add trash to the list.
+ ___________________________
+ Slot "10" does not exist.
+ Object: "Toshiba" was not place into a list.
+ Tried to add Toshiba to index 10 but  there are only 5 slots.
+ ___________________________
+ Element(s) in list:
+ Print all the elements in the list.
+ ___________________________
+ Simmigon
+ Daril
+ Flagg
+ Denzel
+ Junk
+ ___________________________
+
+ Object: "Junk" is in the list.
+ Object: "Junk" was removed from the list.
+ Remove Junk. Check to see if Junk is in the list first then remove it.
+ ___________________________
+
+ Simmigon
+ Daril
+ Flagg
+ Denzel
+ null
+ ___________________________
+
+ Size:4
+ Get the number of element in the array.size will not count null.
+ ___________________________
+
+ Object: "Flagg" is in the list.
+ Flagg is at index 2.
+ Find Flagg ,then print which position flagg is at in the list.
+ ___________________________
+ Read the elements in the list to see if 3410 is in the list.
+ Object: "3410" is not in the list.
+ false
+ ___________________________
+ Read the elements in the list to see if Denzel is in the list.
+ Object: "Denzel" is in the list.
+ true
+===============================================
+ 2.     Solution - 16%
+
+                        - Declare a private class level Object array
+                        - Create a default construction that initialize the array to size ten  
+                        - Create a construction that initialize the array to a user define value  
+                        - Create a method for adding elements to the end of an array 
+                           that takes in an object as its parameter 
+                        - Create a method for adding elements to a location in an array 
+                           that takes in a int and an object as its parameter
+                        - Create a method for retrieving object from an array that takes 
+                            in a int into its parameters and return the element
+                        - Create a method that counts the number of elements (Objects)
+                            in the array then return a int value
+                        - Create a  helper method to see if the array is empty
+                        - Create a  helper method to see if the array is Full
+                        - Create a method isIn to loop though the elements for a matching 
+                           Object that return a boolean value
+                        - Create a method to search though the array that take in an object
+                           find that object and returns the objects location
+                       - Create a method that takes in an object and remove it from the list
+  
+        Algorithms - 16%
+                    List data structures - 5%.
+                        - An array
+                                Description:
+                                a) This allows us to store a collect of related data.
+                    Expected input/output - 5%
+                        - add(Object x)
+                                a) input:Object
+                                b) output: void
+                        - add(int index, Object x)
+                                a) input: int and Object
+                                b) output: void
+                        - get(int index) 
+                                a) input: int 
+                                b) output: Object
+                        - size()
+                                a) input: empty
+                                b) output: int
+                        - isEmpty()
+                                a) input: empty
+                                b) output: boolean
+                        - isFull()
+                                a) input: empty
+                                b) output: boolean
+                        - isIn(Object ob)
+                                a) input: Object
+                                b) output: boolean
+                        - find(Object n)  
+                                a) input: Object
+                                b) output: void
+                        - remove(Object n) 
+                                a) input: Object
+                                b) output: void
+                        - isFull()
+                                a) input: empty
+                                b) output: boolean
+                        - isIn(Object ob) 
+                                a) input: Object
+                                b) output: boolean
+                        - emptyTheArray() 
+                                a) input: empty
+                                b) output: void
+                        - Capacity() 
+                                a) input: empty
+                                b) output: int
+
+ 5.      Purpose of the class(es):
+            a) ArrayList: - abstract the arrayList method for code reuse in other 
+                                    programs using OOP methogies.
+
+                                  - create a list of object and perform 
+                                     action on those object
+
+            b) TestArray  - test the methods of ArrayList and print easier to read 
+                                     message for better understanding of what is excpted of 
+                                     the methods   
+
+                                  - TestArray will also test each method including helper methods to ensure
+                                     the methods are returning the correct values.     
+
 
  */
 package arraylist;
 
 public class ArrayList {
+
     //Declare array of objects object.
 
     private Object[] myArray;
 
-    //Precondition: None    
+    //Precondition: None
+    //Postcondition: An Array of size Ten
     public ArrayList() {
         myArray = new Object[10];
     }// End of constructor 
-    //Postcondition: An Array of size Ten
 
     //Precondition: An int variable is needed for the parameters.
+    //Postcondition:The Array Capacity will be the value of the variable n
     public ArrayList(int n) {
         myArray = new Object[n];
     }//// End of constructor
-    //Postcondition:The Array Capacity will be the value of the variable n
 
     //Precondition: An Object x variable is needed for the parameters.
+    //Postcondition: An Array of size Ten 
    /*If the array is Empty place the object at index 0 
      * else If the last value in the list is an object "Full" is printed to the Screen
      * else start from end of the list and move backwards until you reach the first object from the end 
@@ -50,14 +198,15 @@ public class ArrayList {
         }//end of else
         System.out.println(f);
     }//End of add() method
-    //Postcondition: An Array of size Ten 
 
     //Precondition: An int variable and an Object variable is needed for the parameters.
+    //Postcondition: An object is now added to the  array at a specifed location
     /*The int variable will insert the Object in the location specified by the index
      * If the value at the index is null then we replace that value with the incoming Object x
      * else we send a message Saying that Slot is occupied. If the user tries to place a object in a index that
      * is out of  bound a try catch block is used to print a message. Slot does not exist
      */
+
     public void add(int index, Object x) {
         String f = "";
 
@@ -75,14 +224,14 @@ public class ArrayList {
         }
         System.out.println(f);
     }// End of add()
-    //Postcondition: An object is now added to the  array at a specifed location
 
     //Precondition: An int variable is needed for the parameters.
+    //Postcondition: We receive the contents of the array at that index
     //The value specified will return an Object at the location in the array
+    
     public Object get(int index) {
         return myArray[index];
     }//End of get method
-    //Postcondition: We receive the contents of the array at that index
 
     //Precondition: no data types needed for the parameters.
     /* Size take no argument  a count is initialized to zero
@@ -92,6 +241,7 @@ public class ArrayList {
      *  Start a for loop to iteration thought at the indexes of the array
      *  Check for Object if an object is found increment count by 1
      */
+    
     public int size() {
         int count = 0;
 
@@ -110,6 +260,7 @@ public class ArrayList {
      * If the value at that current location in the loop is not null 
      * set empty to false and break the loop to stop searching.
      */
+    
     public boolean isEmpty() {
 
         boolean empty = true;
@@ -122,8 +273,20 @@ public class ArrayList {
 
         return empty;
     }// End of isEmpty method
-    //Postcondition: return the value for empty
 
+    public boolean isFull() {
+        boolean full = false;
+        if (size() == Capacity()) {
+        
+            full = true;
+        } else {
+     
+        }
+        return full;
+
+    }// End of isFull method
+
+    //Postcondition: return the value for empty
     //Precondition: An Object variable is needed for the parameters.
     /*initialized a boolean expression to false A try catch block is needed.
      * If there is a null value in the list, the complier will throw a null pointer 
@@ -133,6 +296,7 @@ public class ArrayList {
      * set found to true and break the loop. We only need the first occurrence
      * This will print the Object: is not in the list. when a null value is incurred
      */
+    
     public boolean isIn(Object ob) {
         boolean found = false;
         String f = "";
@@ -159,7 +323,7 @@ public class ArrayList {
     //Postcondition: return the value of found
 
     //Precondition: An Object variable is needed for the parameters.
-    /*  initialize  local varible to i to 0
+    /*  initialize local varible to i to 0
      * A try catch block is needed. If there is a null value in the list, 
      * the complier will throw a null pointer exception  when we try to use the .equals method 
      * on the elements of the list where the value is null
@@ -170,6 +334,7 @@ public class ArrayList {
      * i + 1 then subtract  i leaves a negative (-1)
      * Prints a message that said what object you where looking for and return Object is not in the list
      */
+    
     public int find(Object n) {
 
         int i = 0;
@@ -202,6 +367,7 @@ public class ArrayList {
      * if find() returns a postive number 0 or greater that index is removed else a message is printed
      * saying the object was not found. 
      */
+    
     public void remove(Object n) {
         String f = "";
         int i = find(n);
@@ -221,12 +387,14 @@ public class ArrayList {
      */
 
     //Empty the list
+    
     public void emptyTheArray() {
         for (int i = 0; i < myArray.length; i++) {
             myArray[i] = null;
         }//end of for loop
     }//end of emptyTheArray
 
+    
     public int Capacity() {
         return myArray.length;
     }//end of method
