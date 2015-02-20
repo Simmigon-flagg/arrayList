@@ -2,8 +2,8 @@
  Documentation:
     1.     Purpose - 13%.
             The purpose of this assignment is to write the ArrayList Data Structure 
-             along with helper method to support and implement the ArrayList functionality.     
-
+             along with helper method to support and implement the ArrayList functionality.
+            /////////////////////////////////Add more here////////////////////////////////////////////
     
 Output from TestArray
 ===============================================
