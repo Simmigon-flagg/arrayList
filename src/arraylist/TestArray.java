@@ -1,63 +1,3 @@
-
-/*   
- Purpose (one for each class that specifically defines that that class does): 
-
-    - The purpose of this program is to do some operation on an array of random numbers
-    - An initial array of random numbers will be created and populated...
-    - The random numbers are to be sorted in ascending order and the summed....
-   
-    - The output should look like: 
-     "The unsorted array is: 1, 4, 5, 62, 1, 53, 32"
-     "The sorted array is: 1, 1, 4, 5, 32, 53, 62"
-     "The sum is: 158"   
-   
- Solution: 
-
-    - Create an empty array, of the required length
-    - Create a random number generator
-    - In a for loop, insert random numbers into the array
-    - Call PrintArray to print the array
-    - Call SortArray to sort the array, using selection sort
-    - Call PrintArray to print the array
-    - Call SumArray to get the sum of the array
-    - Print the sum of the array
-  
- Data structures to be used: 
-       - One array
-           - One array to hold the randomly generated numbers
-       - For larger programs, list any other data structures and what they're used for
-           
- Description of how to use program and expected input/output:
-       - The program does not require any user input.
-       - The program will output three lines of text containing:
-            - The original array
-            - The sorted array
-            - The sum of the array
- */
-
-
-
-    
-    //Initializes all private variables required for the program
-
-
-        //Create a random number generator
-
-    
-        //Use a for loop to insert random numbers into the array
-
-    
-    //Precondition: Takes an integer array
-    //Postcondition: No return.  Prints the array to the console/screen
- 
-
-    //Precondition: Takes a class level integer array
-    //Postcondition: No return.  Sorts the array from smallest to largest
-   
-    
-    //Precondition: Takes an integer array
-    //Postcondition: Returns he sum of the array, as an integer
-
 package arraylist;
 
 /**
@@ -66,21 +6,21 @@ package arraylist;
  */
 public class TestArray {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
         // create an array of 5 Object
         ArrayList myA = new ArrayList(5);
         //See if the element is 
+        System.out.println("=======================isEmpty()==AND===isFull()=============================");
         System.out.println("This list is empty: " + myA.isEmpty());
-         System.out.println("This list is full: " + myA.isFull());
+        System.out.println("This list is full: " + myA.isFull());
         System.out.println();
-        System.out.println("_______________________________________________________________________");
-        System.out.println("Maximum Length of the array: " + myA.Capacity());
-         System.out.println("Number of elements in the array: " + myA.size());
-        System.out.println("_______________________________________________________________________");
+        System.out.println("=======================Capacity()===AND==size()=============================");
+        System.out.println("Maximum Length of Objects the array can hold: " + myA.Capacity());
+        System.out.println("Object array content are all initialize to \"null\".");
+        myA.printArray();
+        System.out.println("Number of elements in the array: " + myA.size() + "\n");
+        System.out.println("=======================add(Object obj)==AND===add(int i, Object obj)=====");
 
         //Added six object 
         myA.add("Simmigon");
@@ -90,51 +30,71 @@ public class TestArray {
         myA.add("Denzel");
         myA.add("Junk");
         System.out.println();
-        System.out.println("_______________________________________________________________________");
-        //The can hold five elements
-        myA.add("Trash");
-        System.out.println("Tried to add trash to the list.");
-        System.out.println("_______________________________________________________________________");
-        myA.add(11, "Toshiba");
-        System.out.println("Tried to add Toshiba to index 11 but there are only "+myA.Capacity()+" slots.");
-        System.out.println("_______________________________________________________________________");
+        System.out.println("=======================printElements()=============================");
         System.out.println("Element(s) in list:");
-        System.out.println("Print all the elements in the list.");
-        System.out.println("_______________________________________________________________________");
-         System.out.println("This list is Full: " + myA.isFull());
-        //Use get to see the element in an index
-        
-        for (int i = 0; i < myA.Capacity(); i++) {
-            System.out.println(myA.get(i));
-        }
-        System.out.println("_______________________________________________________________________");
         System.out.println();
-        // Remove an element
-        myA.remove("Junk");
-        System.out.println("Remove Junk. Check to see if Junk is in the list first then remove it.");
-        System.out.println("_______________________________________________________________________");
+        myA.printElements();
         System.out.println();
-        for (int i = 0; i < myA.Capacity(); i++) {
-            System.out.println(myA.get(i));
-        }
-        System.out.println("_______________________________________________________________________");
-        System.out.println();
+        System.out.println("=======================size()===================================");
         //Returns the index of the object
-
+        System.out.println("Get the number of element in the array.The size() method will not count null.");
         System.out.println("Size:" + myA.size());
-        System.out.println("Get the number of element in the array.size will not count null.");
-        System.out.println("_______________________________________________________________________");
+        System.out.println();
+        System.out.println("=======================add(Object obj) INTO FULL LIST==================");
+        //The can hold five elements
+        System.out.println("Try to add Trash to the list.");
+        myA.add("Trash");
+        System.out.println();
+        System.out.println("=======================add(int i,Object obj) INTO INDEX THAT IS OCCUPIED========");
+        System.out.println("Try to add Android to index 0.");
+        myA.add(0, "Android");
+        System.out.println();
+        System.out.println("=======================add(int i,Object obj) NO SUCH INDEX==================");
+        System.out.println("Try to add Toshiba to index 11 but there are only " + myA.Capacity() + " slots.");
+        myA.add(11, "Toshiba");
+        System.out.println();
+        System.out.println("=======================printElements(int i,Object obj)=====================");
+        System.out.println("Element(s) in list:");
+        System.out.println();
+        //Use get to see the element in an index
+        myA.printElements();
+        System.out.println();
+        System.out.println("=======================remove(Object obj)=====================");
+
+        // Remove an element        
+        myA.remove("Junk");
+        System.out.println();
+        myA.printElements();
+        System.out.println();
+        System.out.println("=======================remove(Object obj)=====================");
+
+        System.out.println("Remove a value that is not in the list");
+        myA.remove("Aliens");
+        System.out.println();
+        myA.printElements();
         System.out.println();
 
-        System.out.println("Flagg is at index " + myA.find("Flagg") + ".");
+        System.out.println("=======================find()=====================");
         System.out.println("Find Flagg ,then print which position flagg is at in the list.");
-        System.out.println("_______________________________________________________________________");
+        System.out.println("Flagg is at index " + myA.find("Flagg") + ".");
+        System.out.println();
+        System.out.println("=======================find()=====================");
+        System.out.println("Find David ,then print which position David is at in the list.");
+        System.out.println("David is at index " + myA.find("David") + ".");
+        System.out.println();
+        System.out.println("=======================isIn()=====================");
         System.out.println("Read the elements in the list to see if 3410 is in the list.");
         System.out.println(myA.isIn("3410"));
-        System.out.println("_______________________________________________________________________");
+        System.out.println();
+        System.out.println("=======================isIn()=====================");
         System.out.println("Read the elements in the list to see if Denzel is in the list.");
         System.out.println(myA.isIn("Denzel"));
-        System.out.println("_______________________________________________________________________");
+        System.out.println();
+        System.out.println("=======================emptyTheArray()==AND===printArray()================");
+        System.out.println("Reset the object array back to all null value");
+        myA.emptyTheArray();
+        System.out.println();
+        myA.printArray();
 
     }
 }
