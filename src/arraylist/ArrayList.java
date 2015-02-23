@@ -37,10 +37,10 @@ emptyTheArray
 
 Description:
         Algorithms
-                    List data structures - 5%.
+                    List data structures
                         - An array                               
                                 a) This allows us to store a collect of related data.
-                    Expected input/output - 5%
+                    Expected input/output
                         - add(Object x)
                                 a) input:Object                                         
                                 b) output: void
@@ -432,7 +432,7 @@ public class ArrayList {
     //Postcondition: Returns void prints all the indexes in the array
     //To the console
     public void printArray(){
-      //Start a for loop to iterate the length of the array
+      //Start a for loop to iterate the length of the array.
     for (int i = 0; i < Capacity(); i++) {  
          //Print the iterator's value's content using 
          //the class method get().
