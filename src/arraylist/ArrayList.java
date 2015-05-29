@@ -1,147 +1,4 @@
-/*
- Documentation:
-    1.     Purpose
 
-            The purpose of this assignment is to write the ArrayList 
-            Data Structure along with helper method to support and implement 
-            the ArrayList functionality. We will create, read, 
-            update and delete objects from an arraylist.                
-==============================================================================
- 2.     Solution
-
-    - Declare a private class level Object array
-    - Create a default construction that initialize the array to size ten  
-    - Create a construction that initialize the array to a user define value  
-    - Create a method for adding elements to the end of an array that 
-      takes in an object as its parameter    
-    - Create a method for adding elements to a location in an array   
-    - Create a method for retrieving object from an array that takes 
-      in a int into its parameters and return the element
-    - Create a method that counts the number of Objects
-      in the array then return a int value
-    - Create a isEmpty helper method to see if the array is empty
-    - Create a isFull helper method to see if the array is Full
-    - Create method isIn to loop though the elements for a matching 
-      Object that return a boolean value
-    - Create method find to loop though the elements for a matching 
-      Object that return a int value
-    - Create a method that takes in an object and remove it from the list
-    - Create a method to print the array
-    - Create a method to print all the objects in the array
-    - Create a method to print the number of indexs in the array
-    - Create a method to print the array
-
-
-emptyTheArray
-  
-
-Description:
-        Algorithms
-                    List data structures
-                        - An array                               
-                                a) This allows us to store a collect of related data.
-                    Expected input/output
-                        - add(Object x)
-                                a) input:Object                                         
-                                b) output: void
-                                   Print to Screen
-                                   Object: was not added.
-                                           or
-                                           was added.
-                                   
-                        - add(int index, Object x)
-                                a) input: int and Object
-                                b) output: void
-                                   Print to Screen
-                                    Object: was added.
-                                    or
-                                    Slot is occupied 
-                                    Object was not add to index 
-                                    or
-                                    Slot "indexed" does not exist.
-                                    Object: was not added to the list.
-                                    
-                        - get(int index) 
-                                a) input: int                                   
-                                b) output: Object
-                                   The Object at that index position
-                        - size()
-                                a) input: empty
-                                b) output: int
-                                   Prints all Objects that are not null
-                        - isEmpty()
-                                a) input: empty
-                                b) output: boolean
-                                   True 
-                                   or
-                                   false
-                        - isFull()
-                                a) input: empty
-                                b) output: boolean
-                                   True 
-                                   or
-                                   false
-                        - isIn(Object ob)
-                                a) input: Object
-                                b) output: boolean
-                                   True 
-                                   or
-                                   false
-                        - find(Object n)  
-                                a) input: Object                                
-                                b) output: void
-                                   Returns an int position of
-                                           the object's index
-                                   Returns -1                                          
-                                   Prints to the Screen
-                                   Object: found.
-                                   or
-                                   Object: not found.
-                
-                        - remove(Object n) 
-                                a) input: Object                                    
-                                b) output: void
-                                Object: was removed from the list.
-                                or
-                                Object: was not removed from the list.
-                        - isFull()
-                                a) input: empty
-                                b) output: boolean
-                                   True 
-                                   or
-                                   false
-                        - isIn(Object ob) 
-                                a) input: Object
-                                b) output: boolean
-                                True 
-                                or
-                                false
-                        - emptyTheArray() 
-                                a) input: empty
-                                b) output: void
-                                    Print to the screen
-                                    Array emptied
-                        - Capacity() 
-                                a) input: empty
-                                b) output: int
-                                   Returns the total number of index
-
- 5.      Purpose of the class(es):
-            a) ArrayList: - abstract the arrayList method for code reuse in other 
-                                    programs using OOP methogies.
-
-                                  - create a list of object and perform 
-                                     action on those object
-
-            b) TestArray  - test the methods of ArrayList and print easier to read 
-                                     message for better understanding of what is excpted of 
-                                     the methods   
-
-                                  - TestArray will also test each method including helper methods to ensure
-                                     the methods are returning the correct values.     
-
-
- */
 package arraylist;
 
 public class ArrayList {
@@ -337,7 +194,7 @@ public class ArrayList {
                      //If the iterator's value's content is equal to the parameter's object's value 
                      //execute the body of the if statement
                     if (myArray[i].equals(n)) {
-                         //Assign a message
+                         //Assign a message                        
                         f = "Object: \"" + n + "\" found.\n";
                         //exit the loop
                         break;
@@ -349,6 +206,7 @@ public class ArrayList {
                         //Assign a message
                         f = "Object: \"" + n + "\" was not found.\n";
                     }//End of if
+                    
                 }//end of the for loop
 
             } //End of the try
